@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>http://incorporated.sendtoinc.com</link>
+    <atom:link href="http://incorporated.sendtoinc.com/feed.xml" rel="self" type="application/rss+xml" />
+    <description></description>
+    <language>en-us</language>
+    <pubDate>Sun, 13 Apr 2014 13:25:23 +0000</pubDate>
+    <lastBuildDate>Sun, 13 Apr 2014 13:25:23 +0000</lastBuildDate>
+
+    
+    
+    <item>
+      <title>Large Scale iOS Development: Case Study</title>
+      <link>http://incorporated.sendtoinc.com/2014/02/10/Large-Scale-iOS-Development/</link>
+      <pubDate>Mon, 10 Feb 2014 00:00:00 +0000</pubDate>
+      <author></author>
+      <guid>http://incorporated.sendtoinc.com/2014/02/10/Large-Scale-iOS-Development</guid>
+      <description>&lt;p&gt;This starts part one of a many part series on scaling iOS development. By scaling I don’t mean adding more CPU or more nodes. I mean evolving an existing codebase with a big and evolving development team.&lt;/p&gt;
+
+&lt;p&gt;The following is a recollection (some retrospective decisions) of a project I was involved with a while ago and what we did.&lt;/p&gt;
+
+&lt;h2 id=&quot;case_study&quot;&gt;Case Study&lt;/h2&gt;
+
+&lt;p&gt;Inheriting a codebase is not the best of situations especially when the original developers/lead had made no attempt to build a scalable solution nor did they have the foresight of what this codebase would turn into. Code where logic is not separated into its distinct layers, repeated code, Observers that trigger other observers, business logic in the view layer, just bad everywhere you turned.&lt;/p&gt;
+
+&lt;p&gt;If we were going to maintain and scale this codebase, we had to drastically rethink the organisation of this project and a complete refactor was out of the question.&lt;/p&gt;
+
+&lt;p&gt;Luckily the code we were contracted to do was a complete new feature set so we did not need to really touch the existing code base all that much.&lt;/p&gt;
+
+&lt;h2 id=&quot;implementing_changes&quot;&gt;Implementing changes.&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Testing – This was our biggest concern at the beginning, retro-fitting both acceptance and unit tests on the existing code base. That make it easier to refactor/abstract large segments of the existing codebase with (less) worry about regression.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Continuous Integration – At this stage with out projects separated and regression suites complete we had the project building, testing and deploying on every commit.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Project Abstraction – By the end we had split the application up into several distinct projects, Built into static libraries and resource bundles.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;New Features – At this point we began implementing new features. With new features came new complexity, new projects and dependencies.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And thats basically it, not only did we successfully (on time, budget) deliver the software but were able to fix many performance bugs and memory leaks which existed in the code.&lt;/p&gt;
+
+&lt;p&gt;Future posts will address the key points in detail with (some) implementation detail and tutorial.&lt;/p&gt;</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>My iOS Toolbox</title>
+      <link>http://incorporated.sendtoinc.com/2013/10/11/Toolbox/</link>
+      <pubDate>Fri, 11 Oct 2013 00:00:00 +0000</pubDate>
+      <author></author>
+      <guid>http://incorporated.sendtoinc.com/2013/10/11/Toolbox</guid>
+      <description>&lt;p&gt;An Obligatory post (so it seems) for iOS developers to list all the tools they use (and sometmes dont use) to make thier development life easier. Heres mine, the ones I actually use&lt;/p&gt;
+
+&lt;h3 id=&quot;designing&quot;&gt;Designing&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.bohemiancoding.com/sketch/&quot;&gt;Sketch&lt;/a&gt; – Sketch is amazing, Designed with Mac/iOS in mind it takes designing for iOS to another level. Sketch really reminds me of MX Fireworks – you know, before Adobe got thier hands on it. Simple yet powerful; vector editing, easy exporting. It will do all you need.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.pixelmator.com&quot;&gt;Pixelmator&lt;/a&gt; – For things non vector, Pixelmator is a great alternative to Photoshop and to Gimp.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/library/ios/documentation/userexperience/conceptual/MobileHIG/index.html&quot;&gt;The HIG&lt;/a&gt; – Apple’s Human Interface Guideline. This should be printed and on your desk &lt;strong&gt;at all times&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;developing&quot;&gt;Developing&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://itunes.apple.com/au/app/xcode/id497799835?mt=12&quot;&gt;Xcode&lt;/a&gt; – Apple’s flagship Objective-C development product. Xcode and I have a love hate relationship but I always come back to Xcode.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.jetbrains.com/objc/&quot;&gt;App Code&lt;/a&gt; – Jetbrains ultimate-all-in-one IDE for Objective-C development and it really is good. It provides features like; a refactorer that works, code completion that works, linting, automatic imports and import optimsation. It does however; lack an Interface Builder which for me, a dealbreaker.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.sublimetext.com/2&quot;&gt;Sublime Text 2&lt;/a&gt; – No, I do not write Objective-c in sublime but part of my process is making little scripts in ruby to make my integrating and deploying tasks automated.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/cocoapods/cocoapods&quot;&gt;Cocoapods&lt;/a&gt; – &lt;strong&gt;The&lt;/strong&gt; Dependency manager for Objective-C. NO more linker errors, no more importing projects or dealing with submodules. Enough said.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;testing&quot;&gt;Testing&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/allending/Kiwi&quot;&gt;Kiwi&lt;/a&gt; – This was almost OCUnit but I have switch whole heartedly to Kiwi and BDD. It’s not just about changing frameworks, its about changing the way you test.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.zucchiniframework.org&quot;&gt;Zucchini&lt;/a&gt; – Acceptance testing, define flows, detect UI discrepancies and Integrate with CI.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;integrating&quot;&gt;Integrating&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/facebook/xctool&quot;&gt;xctool&lt;/a&gt; – Released by Facebook, xctool provides a nicer interface than xcodebuild with better test integration and reporting built in.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;xcrun – Ships with Xcode, generate .ipa from .app with code signing, all you need really.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://testflightapp.com&quot;&gt;Testflight&lt;/a&gt; – Lucklily I had an account before apple’s aquistion of testflight. Upload builds, add release notes, notify people.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;A CI Server – Choose one, They all do basically the same thing. Define a workflow, add build steps and go, I use Jenkins.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;note&quot;&gt;note&lt;/h3&gt;
+
+&lt;p&gt;Although this did not make the list because it is still under beta, Github’s Atom editor has quickly became a replacement for Sublime text 2.&lt;/p&gt;</description>
+    </item>
+    
+    
+
+  </channel> 
+</rss>
