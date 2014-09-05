@@ -1,129 +1,73 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Hatvani &mdash; A blog about iOS development, mostly.</title>
-    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/images/logo.png"/>
-    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="John Hatvani" />
-    <meta name="title" content="John Hatvani">
-    <link rel="canonical" href="http://incorporated.sendtoinc.com/">
-    
-    
-    <meta property="og:title" content="John Hatvani"/>
-    <meta property="og:url" content="http://incorporated.sendtoinc.com/"/>
-    
-    
-    <meta property="og:site_name" content="John Hatvani">
-</head>
-<body>
-
-<section class="site-nav">
-    <header>
-        <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
-            </a>
-            <a href="/" class="home">Blog</a>
-            
-            
-        </nav>
-    </header>
+---
+layout: base
+---
+<div class="blog-cover" style="background-image:url(/images/{{ site.inc.cover_image }});">
+<section>
+    <div class="container">
+        <img src="/images/avatar.png" style="height:8em; width:8em; -webkit-border-radius: 4em;
+-moz-border-radius: 4em;
+border-radius: 4em;" />
+        <h1>{{ site.inc.title }}</h1>
+        <h3>Mobile Software Engineer</h3>
+    </div>
 </section>
-
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
-
-    <section>
-        <div class="container">
-            <h1>John Hatvani</h1>
-            <h3>A blog about iOS development, mostly.</h3>
-
-            
-            <a href="https://twitter.com/j_hatvani" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
-            
-            
-            <a href="/feed.xml" title="RSS Feed">
-                <i class="icon icon-rss"></i>
-            </a>
-        </div>
-    </section>
 </div>
-
 
 <article class="container">
 
-  
-    <section class="index">
-        <!-- -->
+<section>
+  <p>&nbsp;</p>
+  <h1>Hello</h1>
+  <p>
+    I'm a mobile software engineer living in Brisbane, Australia. I write Ojecive-c most days and the other days I try to make development easier;
+    From design patterns and archeticture to testing and automation. I have worked for Australias #1 mobile development studio.
+    I have a keen interest in all things mobile, especially user interactions and user experience.
+  </p>
+</section>
+
+  <section id="box" style="height:600px;">
+        <h2>Ive worked with some amazing brands</h2>
+        <p>I started developing iOS apps back in 2009 on iOS 2.x
+          <br />
+          1 out of 3 iPhones in Australia have had an app I have been involved with installed.
+          This is not a list of all of them, this is a list of apps that I am particularly proud to be a part of.</p>
         <div>
-            <h2 class="title"><a href="/2014/02/10/Large-Scale-iOS-Development/" rel="prefetch">Large Scale iOS Development: Case Study</a></h2>
-            <p>Part one, of a series of posts about developing and maintaining a large scaling project. This entry talks in high level, the problem and solution</p>
-            <div class="meta">
-                Written By <address>John Hatvani</address> &mdash;
-                <time pubdate datetime="2014-10-February" title="February 10, 2014">February 10, 2014</time>
-            </div>
+            <h3>Wotif</h3>
+            <a href="{{ site.inc.itunes.wotif }}" target="_blank"> <img src="/images/wotifLogo.png"/> </a>
         </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
         <div>
-            <h2 class="title"><a href="/2013/10/11/Toolbox/" rel="prefetch">My iOS Toolbox</a></h2>
-            <p>What I use day to day to make my development life easier.</p>
-            <div class="meta">
-                Written By <address>John Hatvani</address> &mdash;
-                <time pubdate datetime="2013-11-October" title="October 11, 2013">October 11, 2013</time>
-            </div>
+            <h3>ANZ</h3>
+            <a href="{{ site.inc.itunes.anz }}" target="_blank"><img src="/images/growANZ.png"/> </a><a href="{{ site.inc.itunes.wotif }}">
         </div>
-        <hr>
+          <div>
+              <h3>Cricket Australia</h3>
+              <a href="{{ site.inc.itunes.cricket }}" target="_blank"><img src="/images/cricketAus.png"/></a>
+          </div>
+          <div>
+              <h3>Sportsbet</h3>
+              <a href="{{ site.inc.itunes.sportsbet }}" target="_blank"><img src="/images/sportsBet.png"/></a>
+          </div>
+          <div>
+              <h3>Racing Network</h3>
+              <a href="{{ site.inc.itunes.racingnwk }}" target="_blank"><img src="/images/RN.png"/></a>
+          </div>
+          <div>
+              <h3>JHC</h3>
+              <a href="{{ site.inc.itunes.jhc }}" target="_blank"><img src="/images/JHC.png"/></a>
+          </div>
     </section>
-    
-    
-    <section class="pagination" style="text-align:center">
-      
-      
+    <section>
+      <h2>Sometimes I write</h2>
+        {% for post in site.posts offset: 0 limit: 1  %}
+          {% unless post.draft %}
+            <section>
+                <div>
+                    <p><a href="{{ post.url }}" rel="prefetch">{{ post.title }}</a><br />
+                    {{ post.excerpt }} <a href="{{post.url}}">continue reading</a></p>
+                </div>
+                <p> <a href="/blog/"> See all Posts</a></p>
+            </section>
+            {% endunless %}
+            {% endfor %}
     </section>
 </article>
-
-
-<footer class="site-footer">
-    <div class="container">
-        &copy; 2014
-
-        <nav>
-            John Hatvani &middot;
-            <a href="/">Blog</a> &middot;
-            
-            
-        </nav>
-
-        <nav class="social">
-            
-            <a href="https://twitter.com/j_hatvani" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
-            
-            
-            <a href="/feed.xml" title="RSS Feed">
-                <i class="icon icon-rss black"></i>
-            </a>
-        </nav>
-        <p>Written by John Hatvani. Built with <a href="http://jekyllrb.com/" target="_blank" title="Jekyll">Jekyll</a>, <br /> Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
-    </div>
-</footer>
-
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="/assets/main.js"></script>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-
-
-
-
-
-</body>
-</html>
