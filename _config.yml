@@ -6,10 +6,10 @@ highlighter:	pygments
 permalink:	/blog/:title
 
 # Setup
-title:		Thinny
-tagline:	'blog'
-description:	'My personal blog.'
-url:		john.hatvani.github.io
+title:		John Hatvani
+tagline:	'Mobile Software Engineer'
+description:	'xx'
+url:		johnhatvani.github.io
 commentsystem:	google
 disqus:		example
 
@@ -17,7 +17,7 @@ author:
   name:		'Ian Camporez Brunelli'
   url:		https://google.com/+IanCamporezBrunelli
 
-paginate:	5
+paginate:	10
 
 # Custom vars
 icon:		/assets/images/icon.png
@@ -25,16 +25,20 @@ cover:		/assets/images/cover.jpg
 
 social:
   - icon:	twitter
-    url:	https://twitter.com/iancamporez
+    url:	https://twitter.com/j_hatvani
     desc:	Follow me on twitter
 
   - icon:	github
-    url:	https://github.com/camporez
+    url:	https://github.com/johnhatvani
     desc:	Fork me on github
 
   - icon:	googleplus-alt
     url:	https://google.com/+IanCamporezBrunelli
-    desc:	Add me on google+
+    desc:	Stack Overflow
+
+  - icon:	googleplus-alt
+    url:	http://google.com
+    desc:	Connect
 
   - icon:	feed
     url:	http://camporez.com/atom.xml
@@ -48,8 +52,8 @@ menu:
     url:	/about
     
 copyright:
-  author:	Camporez
-  url:		http://camporez.com
+  author:	John Hatvani
+  url:		johnhatvani.github.io
   type_title:	Some rights reserved
   type_url:	http://creativecommons.org/licenses/by-nc/2.5
 
