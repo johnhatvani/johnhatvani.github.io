@@ -59,6 +59,11 @@ h3 {
 	font-size: 24px;
 }
 
+img {
+	border-radius: 3px;
+	max-width: 100%;
+}
+
 #post-info {
 	font-size: 14px;
 	position: absolute;
@@ -154,26 +159,6 @@ h3 {
 	display: table;
 }
 
-#img-info {
-	width: auto;
-	height: auto;
-	right: 15px;
-	bottom: 15px;
-	position: absolute;
-	z-index: 2;
-}
-
-#img-info span, #img-info a {
-	text-decoration: none;
-	font-size: 26px;
-	display: table;
-	opacity: .75;
-}
-
-#img-info a:hover {
-	opacity: 1;
-}
-
 #middle {
 	background-color: #fff;
 	width: 100%;
@@ -207,12 +192,6 @@ h3 {
 	border-bottom: 2px solid #2a7ead;
 	-webkit-transition: 0.5s ease;
 	transition: 0.5s ease;
-}
-
-
-#article img, #article video {
-	border-radius: 3px;
-	max-width: 100%;
 }
 
 #article-img a, #article-img a:hover {

@@ -6,12 +6,12 @@ highlighter:	pygments
 permalink:	/blog/:title
 
 # Setup
-title:		Camporez
+title:		Thinny
 tagline:	'blog'
-description:	'Um blog pessoal.'
-url:		johnhatvani.github.io
+description:	'My personal blog.'
+url:		john.hatvani.github.io
 commentsystem:	google
-disqus:		camporez
+disqus:		example
 
 author:
   name:		'Ian Camporez Brunelli'
@@ -20,36 +20,38 @@ author:
 paginate:	5
 
 # Custom vars
-icon:		/assets/images/icon2.png
+icon:		/assets/images/icon.png
 cover:		/assets/images/cover.jpg
 
 social:
   - icon:	twitter
     url:	https://twitter.com/iancamporez
-    desc:	Siga-me no twitter
+    desc:	Follow me on twitter
 
   - icon:	github
     url:	https://github.com/camporez
-    desc:	Acesse meu github
+    desc:	Fork me on github
 
   - icon:	googleplus-alt
     url:	https://google.com/+IanCamporezBrunelli
-    desc:	Me adicione ao google+
+    desc:	Add me on google+
 
   - icon:	feed
     url:	http://camporez.com/atom.xml
-    desc:	Inscreva-se no meu feed
+    desc:	Subscribe to my feed
     
 menu:
-  - title:	Início
+  - title:	Home
     url:	/
     
-  - title:	Sobre
-    url:	/sobre
-
-
+  - title:	About
+    url:	/about
+    
 copyright:
   author:	Camporez
   url:		http://camporez.com
-  type_title:	Alguns direitos reservados
-  type_url:	http://creativecommons.org/licenses/by-nc/2.5/br
+  type_title:	Some rights reserved
+  type_url:	http://creativecommons.org/licenses/by-nc/2.5
+
+# Google Analytics (add the UA Code, e.g.: UA-xxxxxxxx-1)
+google_analytics:
