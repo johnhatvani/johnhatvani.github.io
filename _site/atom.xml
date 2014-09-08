@@ -1,439 +1,399 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- 
- <title>Jekyll Bootstrap</title>
- <link href="http://username.github.io/" rel="self"/>
- <link href="http://username.github.io"/>
- <updated>2014-09-08T11:16:24+10:00</updated>
- <id>http://username.github.io</id>
+
+ <title>Camporez</title>
+ <link href="http://camporez.com/atom.xml" rel="self"/>
+ <link href="http://camporez.com/"/>
+ <updated>2014-09-08T13:44:04+10:00</updated>
+ <id>http://camporez.com</id>
  <author>
-   <name>Name Lastname</name>
-   <email>blah@email.test</email>
+   <name>Ian Camporez Brunelli</name>
+   <email></email>
  </author>
 
  
  <entry>
-   <title>Jekyll Introduction</title>
-   <link href="http://username.github.io/lessons/2011/12/29/jekyll-introduction"/>
-   <updated>2011-12-29T00:00:00+10:00</updated>
-   <id>http://username.github.io/lessons/2011/12/29/jekyll-introduction</id>
-   <content type="html">
-&lt;p&gt;This Jekyll introduction will outline specifically  what Jekyll is and why you would want to use it.
-Directly following the intro we’ll learn exactly &lt;em&gt;how&lt;/em&gt; Jekyll does what it does.&lt;/p&gt;
+   <title>Using TPB2RSS with OpenShift</title>
+   <link href="http://camporez.com/blog/tpb2rss-openshift"/>
+   <updated>2014-07-08T00:00:00+10:00</updated>
+   <id>http://camporez.com/blog/tpb2rss-openshift</id>
+   <content type="html">&lt;p&gt;Hello, everybody! Nice to see you here…&lt;/p&gt;
 
-&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Well, you may not know, but I was working on a “The Pirate Bay search” to “RSS feed” converter on the last couple of days.&lt;/p&gt;
 
-&lt;h3 id=&quot;what-is-jekyll&quot;&gt;What is Jekyll?&lt;/h3&gt;
+&lt;p&gt;It is a really simple script that, given a search term, a TPB link or a local saved TPB page, returns (by default printing on the screen) a xml containing the feed (following &lt;a href=&quot;http://cyber.law.harvard.edu/rss/rss.html&quot;&gt;the specifications of RSS 2.0&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;Jekyll is a parsing engine bundled as a ruby gem used to build static websites from
-dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as “a simple, blog aware, static site generator”.&lt;/p&gt;
+&lt;p&gt;I won’t give more details of the functioning or the functionality of this script in here. You can &lt;a href=&quot;https://github.com/camporez/tpb2rss/blob/master/tpb2rss.py&quot;&gt;take a look at the source code&lt;/a&gt; and ask any question &lt;a href=&quot;https://github.com/camporez/tpb2rss/issues&quot;&gt;in the issues page&lt;/a&gt;, &lt;a href=&quot;http://twitter.com/iancamporez&quot;&gt;Twitter&lt;/a&gt;/&lt;a href=&quot;http://google.com/+IanCamporezBrunelli&quot;&gt;Google+&lt;/a&gt; or in the comments’ section below.&lt;/p&gt;
 
-&lt;h3 id=&quot;examples&quot;&gt;Examples&lt;/h3&gt;
-
-&lt;p&gt;This website is created with Jekyll. &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Sites&quot;&gt;Other Jekyll websites&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;what-does-jekyll-do&quot;&gt;What does Jekyll Do?&lt;/h3&gt;
-
-&lt;p&gt;Jekyll is a ruby gem you install on your local system.
-Once there you can call &lt;code&gt;jekyll --server&lt;/code&gt; on a directory and provided that directory
-is setup in a way jekyll expects, it will do magic stuff like parse markdown/textile files,
-compute categories, tags, permalinks, and construct your pages from layout templates and partials.&lt;/p&gt;
-
-&lt;p&gt;Once parsed, Jekyll stores the result in a self-contained static &lt;code&gt;_site&lt;/code&gt; folder.
-The intention here is that you can serve all contents in this folder statically from a plain static web-server.&lt;/p&gt;
-
-&lt;p&gt;You can think of Jekyll as a normalish dynamic blog but rather than parsing content, templates, and tags
-on each request, Jekyll does this once &lt;em&gt;beforehand&lt;/em&gt; and caches the &lt;em&gt;entire website&lt;/em&gt; in a folder for serving statically.&lt;/p&gt;
-
-&lt;h3 id=&quot;jekyll-is-not-blogging-software&quot;&gt;Jekyll is Not Blogging Software&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Jekyll is a parsing engine.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Jekyll does not come with any content nor does it have any templates or design elements.
-This is a common source of confusion when getting started.
-Jekyll does not come with anything you actually use or see on your website - you have to make it.&lt;/p&gt;
-
-&lt;h3 id=&quot;why-should-i-care&quot;&gt;Why Should I Care?&lt;/h3&gt;
-
-&lt;p&gt;Jekyll is very minimalistic and very efficient.
-The most important thing to realize about Jekyll is that it creates a static representation of your website requiring only a static web-server.
-Traditional dynamic blogs like Wordpress require a database and server-side code.
-Heavily trafficked dynamic blogs must employ a caching layer that ultimately performs the same job Jekyll sets out to do; serve static content.&lt;/p&gt;
-
-&lt;p&gt;Therefore if you like to keep things simple and you prefer the command-line over an admin panel UI then give Jekyll a try.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Developers like Jekyll because we can write content like we write code:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Before I start the tutorial, you’ve to know that there’re inumerous ways to create the feed generator on OpenShift, but in this tutorial I’ll approach two of them:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Ability to write content in markdown or textile in your favorite text-editor.&lt;/li&gt;
-  &lt;li&gt;Ability to write and preview your content via localhost.&lt;/li&gt;
-  &lt;li&gt;No internet connection required.&lt;/li&gt;
-  &lt;li&gt;Ability to publish via git.&lt;/li&gt;
-  &lt;li&gt;Ability to host your blog on a static web-server.&lt;/li&gt;
-  &lt;li&gt;Ability to host freely on GitHub Pages.&lt;/li&gt;
-  &lt;li&gt;No database required.&lt;/li&gt;
+  &lt;li&gt;The first one, runs a cron task to update the RSS. Any RSS is created based on the content of a file placed inside your OpenShift installation. Therefore, you’ll have to SSH to your application and edit this file to add/remove new feeds.&lt;/li&gt;
+  &lt;li&gt;The second one is a web-based service. To create a new feed you just need to open your application main page and insert the link in there, or open a search/user/browse page in thepirate bay and replace the main url to YOUR_OPENSHIFT_URL.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;how-jekyll-works&quot;&gt;How Jekyll Works&lt;/h1&gt;
-
-&lt;p&gt;The following is a complete but concise outline of exactly how Jekyll works.&lt;/p&gt;
-
-&lt;p&gt;Be aware that core concepts are introduced in rapid succession without code examples.
-This information is not intended to specifically teach you how to do anything, rather it
-is intended to give you the &lt;em&gt;full picture&lt;/em&gt; relative to what is going on in Jekyll-world.&lt;/p&gt;
-
-&lt;p&gt;Learning these core concepts should help you avoid common frustrations and ultimately
-help you better understand the code examples contained throughout Jekyll-Bootstrap.&lt;/p&gt;
-
-&lt;h2 id=&quot;initial-setup&quot;&gt;Initial Setup&lt;/h2&gt;
-
-&lt;p&gt;After &lt;a href=&quot;/index.html#start-now&quot;&gt;installing jekyll&lt;/a&gt; you’ll need to format your website directory in a way jekyll expects.
-Jekyll-bootstrap conveniently provides the base directory format.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-jekyll-application-base-format&quot;&gt;The Jekyll Application Base Format&lt;/h3&gt;
-
-&lt;p&gt;Jekyll expects your website directory to be laid out like so:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;.
-|-- _config.yml
-|-- _includes
-|-- _layouts
-|   |-- default.html
-|   |-- post.html
-|-- _posts
-|   |-- 2011-10-25-open-source-is-good.markdown
-|   |-- 2011-04-26-hello-world.markdown
-|-- _site
-|-- index.html
-|-- assets
-    |-- css
-        |-- style.css
-    |-- javascripts
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;_config.yml&lt;/strong&gt;
-  Stores configuration data.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;_includes&lt;/strong&gt;
-  This folder is for partial views.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;_layouts&lt;/strong&gt;
-  This folder is for the main templates your content will be inserted into.
-  You can have different layouts for different pages or page sections.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;_posts&lt;/strong&gt;
-  This folder contains your dynamic content/posts.
-  the naming format is required to be &lt;code&gt;@YEAR-MONTH-DATE-title.MARKUP@&lt;/code&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;_site&lt;/strong&gt;
-  This is where the generated site will be placed once Jekyll is done transforming it.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;assets&lt;/strong&gt;
-  This folder is not part of the standard jekyll structure.
-  The assets folder represents &lt;em&gt;any generic&lt;/em&gt; folder you happen to create in your root directory.
-  Directories and files not properly formatted for jekyll will be left untouched for you to serve normally.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;(read more: &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Usage&quot;&gt;https://github.com/mojombo/jekyll/wiki/Usage&lt;/a&gt;)&lt;/p&gt;
-
-&lt;h3 id=&quot;jekyll-configuration&quot;&gt;Jekyll Configuration&lt;/h3&gt;
-
-&lt;p&gt;Jekyll supports various configuration options that are fully outlined here:
-(&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Configuration&quot;&gt;https://github.com/mojombo/jekyll/wiki/Configuration&lt;/a&gt;)&lt;/p&gt;
-
-&lt;h2 id=&quot;content-in-jekyll&quot;&gt;Content in Jekyll&lt;/h2&gt;
-
-&lt;p&gt;Content in Jekyll is either a post or a page.
-These content “objects” get inserted into one or more templates to build the final output for its respective static-page.&lt;/p&gt;
-
-&lt;h3 id=&quot;posts-and-pages&quot;&gt;Posts and Pages&lt;/h3&gt;
-
-&lt;p&gt;Both posts and pages should be written in markdown, textile, or HTML and may also contain Liquid templating syntax.
-Both posts and pages can have meta-data assigned on a per-page basis such as title, url path, as well as arbitrary custom meta-data.&lt;/p&gt;
-
-&lt;h3 id=&quot;working-with-posts&quot;&gt;Working With Posts&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Creating a Post&lt;/strong&gt;
-Posts are created by properly formatting a file and placing it the &lt;code&gt;_posts&lt;/code&gt; folder.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;
-A post must have a valid filename in the form &lt;code&gt;YEAR-MONTH-DATE-title.MARKUP&lt;/code&gt; and be placed in the &lt;code&gt;_posts&lt;/code&gt; directory.
-If the data format is invalid Jekyll will not recognize the file as a post. The date and title are automatically parsed from the filename of the post file.
-Additionally, each file must have &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&quot;&gt;YAML Front-Matter&lt;/a&gt; prepended to its content.
-YAML Front-Matter is a valid YAML syntax specifying meta-data for the given file.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Order&lt;/strong&gt;
-Ordering is an important part of Jekyll but it is hard to specify a custom ordering strategy.
-Only reverse chronological and chronological ordering is supported in Jekyll.&lt;/p&gt;
-
-&lt;p&gt;Since the date is hard-coded into the filename format, to change the order, you must change the dates in the filenames.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Tags&lt;/strong&gt;
-Posts can have tags associated with them as part of their meta-data.
-Tags may be placed on posts by providing them in the post’s YAML front matter.
-You have access to the post-specific tags in the templates. These tags also get added to the sitewide collection.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Categories&lt;/strong&gt;
-Posts may be categorized by providing one or more categories in the YAML front matter.
-Categories offer more significance over tags in that they can be reflected in the URL path to the given post.
-Note categories in Jekyll work in a specific way.
-If you define more than one category you are defining a category hierarchy “set”.
-Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;---
-title :  Hello World
-categories : [lessons, beginner]
----
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;From now on, I will call the first method “&lt;strong&gt;private&lt;/strong&gt;” and the second “&lt;strong&gt;public&lt;/strong&gt;”, so a command indicating “public method only” has to be executed only if you’re following the second method, and vice-versa.&lt;/p&gt;
 
-&lt;p&gt;This defines the category hierarchy “lessons/beginner”. Note this is &lt;em&gt;one category&lt;/em&gt; node in Jekyll.
-You won’t find “lessons” and “beginner” as two separate categories unless you define them elsewhere as singular categories.&lt;/p&gt;
+&lt;p&gt;Let’s get started with the tutorial…&lt;/p&gt;
 
-&lt;h3 id=&quot;working-with-pages&quot;&gt;Working With Pages&lt;/h3&gt;
+&lt;h1 id=&quot;installing-on-openshift&quot;&gt;Installing on OpenShift&lt;/h1&gt;
 
-&lt;p&gt;&lt;strong&gt;Creating a Page&lt;/strong&gt;
-Pages are created by properly formatting a file and placing it anywhere in the root directory or subdirectories that do &lt;em&gt;not&lt;/em&gt; start with an underscore.&lt;/p&gt;
+&lt;h2 id=&quot;creating-the-application&quot;&gt;Creating the application&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;
-In order to register as a Jekyll page the file must contain &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&quot;&gt;YAML Front-Matter&lt;/a&gt;.
-Registering a page means 1) that Jekyll will process the page and 2) that the page object will be available in the &lt;code&gt;site.pages&lt;/code&gt; array for inclusion into your templates.&lt;/p&gt;
+&lt;p&gt;Create a &lt;a href=&quot;https://openshift.redhat.com/app/console/application_type/cart!python-2.7&quot;&gt;Python 2.7 application on OpenShift&lt;/a&gt;, then, if you’re following the &lt;strong&gt;private&lt;/strong&gt; method, add the Cron cartridge. Clone the application to your computer.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Categories and Tags&lt;/strong&gt;
-Pages do not compute categories nor tags so defining them will have no effect.&lt;/p&gt;
+&lt;p&gt;Now, you’ll edit the file &lt;code&gt;setup.py&lt;/code&gt; to include &lt;a href=&quot;http://www.crummy.com/software/BeautifulSoup/&quot;&gt;the Beautiful Soup 4 library&lt;/a&gt; on your installation. Uncomment the line &lt;code&gt;install_requires&lt;/code&gt; and add &lt;code&gt;beautifulsoup4&lt;/code&gt; to it. The line will look like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sub-Directories&lt;/strong&gt;
-If pages are defined in sub-directories, the path to the page will be reflected in the url.
-Example:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;install_requires&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;beautifulsoup4&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code&gt;.
-|-- people
-    |-- bob
-        |-- essay.html
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After edit this file, it’s time to place TPB2RSS’ files. Browse to your repository’s root and run the following commands:&lt;/p&gt;
 
-&lt;p&gt;This page will be available at &lt;code&gt;http://yourdomain.com/people/bob/essay.html&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/camporez/tpb2rss.git tpb2rss
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mv tpb2rss/tpb2rss.py .
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mv tpb2rss/openshift/*.py . &lt;span class=&quot;c&quot;&gt;# Public method only&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mv tpb2rss/openshift/cron/ .openshift/ &lt;span class=&quot;c&quot;&gt;# Private method only&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir -p wsgi/static&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; touch wsgi/static/example.xml &lt;span class=&quot;c&quot;&gt;# Private method only&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rm -rf tpb2rss&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Recommended Pages&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Commit and push the changes. I won’t describe how to use Git/OpenShift, as good tutorials can be easily found.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;index.html&lt;/strong&gt;
-You will always want to define the root index.html page as this will display on your root URL.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;404.html&lt;/strong&gt;
-Create a root 404.html page and GitHub Pages will serve it as your 404 response.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;sitemap.html&lt;/strong&gt;
-Generating a sitemap is good practice for SEO.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;about.html&lt;/strong&gt;
-A nice about page is easy to do and gives the human perspective to your website.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&quot;finishing-the-installation&quot;&gt;Finishing the installation&lt;/h2&gt;
 
-&lt;h2 id=&quot;templates-in-jekyll&quot;&gt;Templates in Jekyll&lt;/h2&gt;
+&lt;p&gt;If you’re following the “&lt;strong&gt;private&lt;/strong&gt;” method, SSH to your application and create this file, directory and link:&lt;/p&gt;
 
-&lt;p&gt;Templates are used to contain a page’s or post’s content.
-All templates have access to a global site object variable: &lt;code&gt;site&lt;/code&gt; as well as a page object variable: &lt;code&gt;page&lt;/code&gt;.
-The site variable holds all accessible content and metadata relative to the site.
-The page variable holds accessible data for the given page or post being rendered at that point.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;touch &lt;span class=&quot;s2&quot;&gt;&amp;quot;$OPENSHIFT_DATA_DIR/searches&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir &lt;span class=&quot;s2&quot;&gt;&amp;quot;$OPENSHIFT_DATA_DIR/raw&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ln -s &lt;span class=&quot;s2&quot;&gt;&amp;quot;$OPENSHIFT_REPO_DIR/wsgi/static&amp;quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$OPENSHIFT_DATA_DIR/static&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Create a Template&lt;/strong&gt;
-Templates are created by properly formatting a file and placing it in the &lt;code&gt;_layouts&lt;/code&gt; directory.&lt;/p&gt;
+&lt;h2 id=&quot;managing-the-feeds&quot;&gt;Managing the feeds&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;
-Templates should be coded in HTML and contain YAML Front Matter.
-All templates can contain Liquid code to work with your site’s data.&lt;/p&gt;
+&lt;p&gt;TPB2RSS is probably running, if you followed all the steps correctly.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Rending Page/Post Content in a Template&lt;/strong&gt;
-There is a special variable in all templates named : &lt;code&gt;content&lt;/code&gt;.
-The &lt;code&gt;content&lt;/code&gt; variable holds the page/post content including any sub-template content previously defined.
-Render the content variable wherever you want your main content to be injected into your template:&lt;/p&gt;
+&lt;p&gt;If you’re following the “&lt;strong&gt;private&lt;/strong&gt;” method, you can create new feeds by editing the file &lt;code&gt;$OPENSHIFT_DATA_DIR/searches&lt;/code&gt;. SSH to your application and edit this file with your favorite text editor.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;...
-&amp;lt;body&amp;gt;
-  &amp;lt;div id=&quot;sidebar&quot;&amp;gt; ... &amp;lt;/div&amp;gt;
-  &amp;lt;div id=&quot;main&quot;&amp;gt;
-    &amp;#123;{content}&amp;#125;
-  &amp;lt;/div&amp;gt;
-&amp;lt;/body&amp;gt;
-...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Each line of this file represents a search term that will generate a XML file in &lt;code&gt;$OPENSHIFT_DATA_DIR/static&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;sub-templates&quot;&gt;Sub-Templates&lt;/h3&gt;
+&lt;p&gt;This file is available online by the URL &lt;code&gt;http://YOUR_OPENSHIFT_URL/static/SEARCH_STRING.xml&lt;/code&gt;, and will look like this:&lt;/p&gt;
 
-&lt;p&gt;Sub-templates are exactly templates with the only difference being they
-define another “root” layout/template within their YAML Front Matter.
-This essentially means a template will render inside of another template.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;rss&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;2.0&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;channel&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;TPB2RSS: Under The Dome S02 !720p [eztv]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&amp;gt;&lt;/span&gt;http://thepiratebay.org/search/Under%20The%20Dome%20S02%20!720p%20[eztv]/0/3/0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/link&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;The Pirate Bay search feed for &amp;quot;Under The Dome S02 !720p [eztv]&amp;quot;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;lastBuildDate&amp;gt;&lt;/span&gt;Wed, 09 Jul 2014 01:22:20 GMT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lastBuildDate&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;language&amp;gt;&lt;/span&gt;en-us&lt;span class=&quot;nt&quot;&gt;&amp;lt;/language&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;generator&amp;gt;&lt;/span&gt;TPB2RSS 1.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/generator&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;docs&amp;gt;&lt;/span&gt;http://github.com/camporez/tpb2rss&lt;span class=&quot;nt&quot;&gt;&amp;lt;/docs&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;webMaster&amp;gt;&lt;/span&gt;ian@camporez.com&lt;span class=&quot;nt&quot;&gt;&amp;lt;/webMaster&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;item&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Under the Dome S02E02 HDTV x264-LOL [eztv]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;![CDATA[ magnet:?xt=urn:btih:9759f086c714589f9d75ad04800cf99ce2bd9b19&amp;amp;amp;dn=Under+the+Dome+S02E02+HDTV+x264-LOL+%5Beztv%5D&amp;amp;amp;tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&amp;amp;amp;tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&amp;amp;amp;tr=udp%3A%2F%2Ftracker.istole.it%3A6969&amp;amp;amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337 ]]&amp;gt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/link&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;pubDate&amp;gt;&lt;/span&gt;Tue, 08 Jul 2014 07:24:00 GMT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pubDate&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;![CDATA[ Link: https://thepiratebay.org/torrent/10507825/Under_the_Dome_S02E02_HDTV_x264-LOL_[eztv]&lt;span class=&quot;nt&quot;&gt;&amp;lt;br&amp;gt;&lt;/span&gt;Uploader: eztv&lt;span class=&quot;nt&quot;&gt;&amp;lt;br&amp;gt;&lt;/span&gt;Size: 269.91 MiB&lt;span class=&quot;nt&quot;&gt;&amp;lt;br&amp;gt;&lt;/span&gt;Seeders: 7546&lt;span class=&quot;nt&quot;&gt;&amp;lt;br&amp;gt;&lt;/span&gt;Leechers: 1339 ]]&amp;gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;/item&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;item&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Under the Dome S02E01 HDTV x264-LOL [eztv]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;![CDATA[ magnet:?xt=urn:btih:97b265826f18f6183d12257d26d7948092c43bb0&amp;amp;amp;dn=Under+the+Dome+S02E01+HDTV+x264-LOL+%5Beztv%5D&amp;amp;amp;tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&amp;amp;amp;tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&amp;amp;amp;tr=udp%3A%2F%2Ftracker.istole.it%3A6969&amp;amp;amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337 ]]&amp;gt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/link&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;pubDate&amp;gt;&lt;/span&gt;Tue, 01 Jul 2014 04:34:00 GMT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pubDate&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;![CDATA[ Link: https://thepiratebay.org/torrent/10465762/Under_the_Dome_S02E01_HDTV_x264-LOL_[eztv]&lt;span class=&quot;nt&quot;&gt;&amp;lt;br&amp;gt;&lt;/span&gt;Uploader: eztv&lt;span class=&quot;nt&quot;&gt;&amp;lt;br&amp;gt;&lt;/span&gt;Size: 376.38 MiB&lt;span class=&quot;nt&quot;&gt;&amp;lt;br&amp;gt;&lt;/span&gt;Seeders: 7443&lt;span class=&quot;nt&quot;&gt;&amp;lt;br&amp;gt;&lt;/span&gt;Leechers: 684 ]]&amp;gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;/item&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/channel&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rss&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;includes&quot;&gt;Includes&lt;/h3&gt;
-&lt;p&gt;In Jekyll you can define include files by placing them in the &lt;code&gt;_includes&lt;/code&gt; folder.
-Includes are NOT templates, rather they are just code snippets that get included into templates.
-In this way, you can treat the code inside includes as if it was native to the parent template.&lt;/p&gt;
+&lt;p&gt;If you’re following the “&lt;strong&gt;public&lt;/strong&gt;” method, just browse to &lt;code&gt;http://YOUR_OPENSHIFT_URL&lt;/code&gt; to generate a new feed URL. The content of this URL will look like the above XML.&lt;/p&gt;
 
-&lt;p&gt;Any valid template code may be used in includes.&lt;/p&gt;
+&lt;p&gt;You can add this URL to your feed client, torrent client (µTorrent, for example, &lt;a href=&quot;http://www.utorrent.com/intl/en/help/guides/rss&quot;&gt;supports RSS&lt;/a&gt;), &lt;a href=&quot;https://ifttt.com&quot;&gt;IFTTT&lt;/a&gt; (to receive a notification when a new item arrives, like in the screenshot below) or any other RSS-tool.&lt;/p&gt;
 
-&lt;h2 id=&quot;using-liquid-for-templating&quot;&gt;Using Liquid for Templating&lt;/h2&gt;
+&lt;div id=&quot;article-img&quot;&gt;&lt;a href=&quot;/media/2014-07-08-tpb2rss-openshift/Captura de tela de 2014-07-09 09:15:56.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/media/2014-07-08-tpb2rss-openshift/Captura de tela de 2014-07-09 09:15:56.png&quot; alt=&quot;If a new Halt and Catch Fire episode is uploaded (in WEB-DL and 720p), then send me a note using Pushbullet.&quot; width=&quot;100%&quot; /&gt;&lt;/a&gt;
+&lt;blockquote style=&quot;border-left: 10px solid #D5D5D5;&quot;&gt;If a new Halt and Catch Fire episode is uploaded (in WEB-DL and 720p), then send me a note using Pushbullet.&lt;/blockquote&gt;&lt;/div&gt;
 
-&lt;p&gt;Templating is perhaps the most confusing and frustrating part of Jekyll.
-This is mainly due to the fact that Jekyll templates must use the Liquid Templating Language.&lt;/p&gt;
-
-&lt;h3 id=&quot;what-is-liquid&quot;&gt;What is Liquid?&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/Shopify/liquid&quot;&gt;Liquid&lt;/a&gt; is a secure templating language developed by &lt;a href=&quot;http://shopify.com&quot;&gt;Shopify&lt;/a&gt;.
-Liquid is designed for end-users to be able to execute logic within template files
-without imposing any security risk on the hosting server.&lt;/p&gt;
-
-&lt;p&gt;Jekyll uses Liquid to generate the post content within the final page layout structure and as the primary interface for working with
-your site and post/page data.&lt;/p&gt;
-
-&lt;h3 id=&quot;why-do-we-have-to-use-liquid&quot;&gt;Why Do We Have to Use Liquid?&lt;/h3&gt;
-
-&lt;p&gt;GitHub uses Jekyll to power &lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;.
-GitHub cannot afford to run arbitrary code on their servers so they lock developers down via Liquid.&lt;/p&gt;
-
-&lt;h3 id=&quot;liquid-is-not-programmer-friendly&quot;&gt;Liquid is Not Programmer-Friendly.&lt;/h3&gt;
-
-&lt;p&gt;The short story is liquid is not real code and its not intended to execute real code.
-The point being you can’t do jackshit in liquid that hasn’t been allowed explicitly by the implementation.
-What’s more you can only access data-structures that have been explicitly passed to the template.&lt;/p&gt;
-
-&lt;p&gt;In Jekyll’s case it is not possible to alter what is passed to Liquid without hacking the gem or running custom plugins.
-Both of which cannot be supported by GitHub Pages.&lt;/p&gt;
-
-&lt;p&gt;As a programmer - this is very frustrating.&lt;/p&gt;
-
-&lt;p&gt;But rather than look a gift horse in the mouth we are going to
-suck it up and view it as an opportunity to work around limitations and adopt client-side solutions when possible.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Aside&lt;/strong&gt;
-My personal stance is to not invest time trying to hack liquid. It’s really unnecessary
-&lt;em&gt;from a programmer’s&lt;/em&gt; perspective. That is to say if you have the ability to run custom plugins (i.e. run arbitrary ruby code)
-you are better off sticking with ruby. Toward that end I’ve built &lt;a href=&quot;http://github.com/plusjade/mustache-with-jekyll&quot;&gt;Mustache-with-Jekyll&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;static-assets&quot;&gt;Static Assets&lt;/h2&gt;
-
-&lt;p&gt;Static assets are any file in the root or non-underscored subfolders that are not pages.
-That is they have no valid YAML Front Matter and are thus not treated as Jekyll Pages.&lt;/p&gt;
-
-&lt;p&gt;Static assets should be used for images, css, and javascript files.&lt;/p&gt;
-
-&lt;h2 id=&quot;how-jekyll-parses-files&quot;&gt;How Jekyll Parses Files&lt;/h2&gt;
-
-&lt;p&gt;Remember Jekyll is a processing engine. There are two main types of parsing in Jekyll.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Content parsing.&lt;/strong&gt;
-  This is done with textile or markdown.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Template parsing.&lt;/strong&gt;
-This is done with the liquid templating language.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And thus there are two main types of file formats needed for this parsing.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Post and Page files.&lt;/strong&gt;
-All content in Jekyll is either a post or a page so valid posts and pages are parsed with markdown or textile.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Template files.&lt;/strong&gt;
-  These files go in &lt;code&gt;_layouts&lt;/code&gt; folder and contain your blogs &lt;strong&gt;templates&lt;/strong&gt;. They should be made in HTML with the help of Liquid syntax.
-  Since include files are simply injected into templates they are essentially parsed as if they were native to the template.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Arbitrary files and folders.&lt;/strong&gt;
-Files that &lt;em&gt;are not&lt;/em&gt; valid pages are treated as static content and pass through
-Jekyll untouched and reside on your blog in the exact structure and format they originally existed in.&lt;/p&gt;
-
-&lt;h3 id=&quot;formatting-files-for-parsing&quot;&gt;Formatting Files for Parsing.&lt;/h3&gt;
-
-&lt;p&gt;We’ve outlined the need for valid formatting using &lt;strong&gt;YAML Front Matter&lt;/strong&gt;.
-Templates, posts, and pages all need to provide valid YAML Front Matter even if the Matter is empty.
-This is the only way Jekyll knows you want the file processed.&lt;/p&gt;
-
-&lt;p&gt;YAML Front Matter must be prepended to the top of template/post/page files:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;---
-layout: post
-category : pages
-tags : [how-to, jekyll]
----
-
-... contents ...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Three hyphens on a new line start the Front-Matter block and three hyphens on a new line end the block.
-The data inside the block must be valid YAML.&lt;/p&gt;
-
-&lt;p&gt;Configuration parameters for YAML Front-Matter is outlined here:
-&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&quot;&gt;A comprehensive explanation of YAML Front Matter&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;defining-layouts-for-posts-and-templates-parsing&quot;&gt;Defining Layouts for Posts and Templates Parsing.&lt;/h4&gt;
-
-&lt;p&gt;The &lt;code&gt;layout&lt;/code&gt; parameter in the YAML Front Matter defines the template file for which the given post or template should be injected into.
-If a template file specifies its own layout, it is effectively being used as a &lt;code&gt;sub-template.&lt;/code&gt;
-That is to say loading a post file into a template file that refers to another template file with work in the way you’d expect; as a nested sub-template.&lt;/p&gt;
-
-&lt;h2 id=&quot;how-jekyll-generates-the-final-static-files&quot;&gt;How Jekyll Generates the Final Static Files.&lt;/h2&gt;
-
-&lt;p&gt;Ultimately, Jekyll’s job is to generate a static representation of your website.
-The following is an outline of how that’s done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Jekyll collects data.&lt;/strong&gt;
-  Jekyll scans the posts directory and collects all posts files as post objects. It then scans the layout assets and collects those and finally scans other directories in search of pages.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Jekyll computes data.&lt;/strong&gt;
-  Jekyll takes these objects, computes metadata (permalinks, tags, categories, titles, dates) from them and constructs one
-  big &lt;code&gt;site&lt;/code&gt; object that holds all the posts, pages, layouts, and respective metadata.
-  At this stage your site is one big computed ruby object.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Jekyll liquifies posts and templates.&lt;/strong&gt;
-  Next jekyll loops through each post file and converts (through markdown or textile) and &lt;strong&gt;liquifies&lt;/strong&gt; the post inside of its respective layout(s).
-  Once the post is parsed and liquified inside the the proper layout structure, the layout itself is “liquified”.
- &lt;strong&gt;Liquification&lt;/strong&gt; is defined as follows: Jekyll initiates a Liquid template, and passes a simpler hash representation of the ruby site object as well as a simpler
-  hash representation of the ruby post object. These simplified data structures are what you have access to in the templates.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Jekyll generates output.&lt;/strong&gt;
- Finally the liquid templates are “rendered”, thereby processing any liquid syntax provided in the templates
- and saving the final, static representation of the file.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;Notes.&lt;/strong&gt;
-Because Jekyll computes the entire site in one fell swoop, each template is given access to
-a global &lt;code&gt;site&lt;/code&gt; hash that contains useful data. It is this data that you’ll iterate through and format
-using the Liquid tags and filters in order to render it onto a given page.&lt;/p&gt;
-
-&lt;p&gt;Remember, in Jekyll you are an end-user. Your API has only two components:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;The manner in which you setup your directory.&lt;/li&gt;
-  &lt;li&gt;The liquid syntax and variables passed into the liquid templates.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;All the data objects available to you in the templates via Liquid are outlined in the &lt;strong&gt;API Section&lt;/strong&gt; of Jekyll-Bootstrap.
-You can also read the original documentation here: &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Template-Data&quot;&gt;https://github.com/mojombo/jekyll/wiki/Template-Data&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;I hope this paints a clearer picture of what Jekyll is doing and why it works the way it does.
-As noted, our main programming constraint is the fact that our API is limited to what is accessible via Liquid and Liquid only.&lt;/p&gt;
-
-&lt;p&gt;Jekyll-bootstrap is intended to provide helper methods and strategies aimed at making it more intuitive and easier to work with Jekyll =)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Thank you&lt;/strong&gt; for reading this far.&lt;/p&gt;
-
-&lt;h2 id=&quot;next-steps&quot;&gt;Next Steps&lt;/h2&gt;
-
-&lt;p&gt;Please take a look at []()
-or jump right into &lt;a href=&quot;&quot;&gt;Usage&lt;/a&gt; if you’d like.&lt;/p&gt;
+&lt;p&gt;This is it! If you’ve found any issue with this tutorial, please comment below.&lt;/p&gt;
 </content>
  </entry>
  
+ <entry>
+   <title>Hello, Cosette</title>
+   <link href="http://camporez.com/blog/hello-cosette"/>
+   <updated>2014-02-27T00:00:00+10:00</updated>
+   <id>http://camporez.com/blog/hello-cosette</id>
+   <content type="html">&lt;h1 id=&quot;thinny-21-codename-cosettehttplesmiserableswikiacomwikicosette&quot;&gt;Thinny 2.1, codename “&lt;a href=&quot;http://lesmiserables.wikia.com/wiki/Cosette&quot;&gt;Cosette&lt;/a&gt;”&lt;/h1&gt;
+
+&lt;p&gt;Cosette is the main character of the french novel &lt;em&gt;Les Misérables&lt;/em&gt;, published in 1862 by &lt;em&gt;Victor Hugo&lt;/em&gt;.&lt;/p&gt;
+
+&lt;div id=&quot;article-img&quot;&gt;&lt;a href=&quot;/media/2014-02-27-hello-cosette/cosette.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/media/2014-02-27-hello-cosette/cosette.jpg&quot; alt=&quot;Amanda Seyfried as Cosette on the 2012 movie.&quot; width=&quot;100%&quot; /&gt;&lt;/a&gt;
+&lt;blockquote style=&quot;border-left: 10px solid #D5D5D5;&quot;&gt;Amanda Seyfried as Cosette on the 2012 movie.&lt;/blockquote&gt;&lt;/div&gt;
+
+&lt;p&gt;This new version of Thinny comes with mobile support and some bugfixes.&lt;/p&gt;
+
+&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
+
+&lt;h3 id=&quot;main-variables&quot;&gt;Main variables&lt;/h3&gt;
+
+&lt;p&gt;The global variables are set on the &lt;code&gt;_config.yml&lt;/code&gt;&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; file.&lt;/p&gt;
+
+&lt;p&gt;To start, you need to change at least the variable &lt;code&gt;url&lt;/code&gt; on the file.&lt;/p&gt;
+
+&lt;h4 id=&quot;social-links&quot;&gt;Social links&lt;/h4&gt;
+
+&lt;p&gt;To add a social link you just need to add the following code inside the variable &lt;code&gt;social&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  - icon:	[the genericon name for the social network]
+    url:	[the url to follow]
+    desc:	[a small description for the link (e.g. &quot;Follow me on twitter&quot;)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;menu&quot;&gt;Menu&lt;/h4&gt;
+
+&lt;p&gt;To add a menu item you just need to add the following code inside the variable &lt;code&gt;menu&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  - title:	[title of the menu item]
+    url:	[the url to follow]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;others&quot;&gt;Others&lt;/h4&gt;
+
+&lt;p&gt;You’ll find a lot of other variables inside the file, e.g.:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the site &lt;code&gt;title&lt;/code&gt;, &lt;code&gt;description&lt;/code&gt;, &lt;code&gt;icon&lt;/code&gt; and default &lt;code&gt;cover&lt;/code&gt; image.&lt;/li&gt;
+  &lt;li&gt;text of the &lt;code&gt;copyright&lt;/code&gt; message.&lt;/li&gt;
+  &lt;li&gt;the number of posts per page (&lt;code&gt;paginate&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;the &lt;code&gt;permalink&lt;/code&gt;’s structure (see &lt;a href=&quot;http://jekyllrb.com/docs/pagination/&quot;&gt;the docs&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;default-yaml-tags&quot;&gt;Default YAML tags&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;layout:&lt;/code&gt;&lt;i&gt;&lt;code&gt;post, page&lt;/code&gt;&lt;/i&gt; &lt;code&gt;or &lt;/code&gt;&lt;i&gt;&lt;code&gt;fullscreen&lt;/code&gt;&lt;/i&gt;: defines the layout of the page.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;title: [string]&lt;/code&gt;: title of the post.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;quote: [string]&lt;/code&gt;: a small description of the post to be shown above the title.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;dark:&lt;/code&gt;&lt;i&gt;&lt;code&gt;true&lt;/code&gt;&lt;/i&gt; &lt;code&gt;or &lt;/code&gt;&lt;i&gt;&lt;code&gt;false&lt;/code&gt;&lt;/i&gt;: use black font (instead of white) for the header (default value is false).&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;image: [url] or &lt;/code&gt;&lt;i&gt;&lt;code&gt;false&lt;/code&gt;&lt;/i&gt;: a cover image for the post (default value is &lt;em&gt;false&lt;/em&gt;).&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;video:&lt;/code&gt;&lt;i&gt;&lt;code&gt;true&lt;/code&gt;&lt;/i&gt; &lt;code&gt;or &lt;/code&gt;&lt;i&gt;&lt;code&gt;false&lt;/code&gt;&lt;/i&gt;: add a cover video for the post (default value is &lt;em&gt;false&lt;/em&gt;).&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;video_mp4: [url]&lt;/code&gt;: the URL for the mp4 video.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;video_webm: [url]&lt;/code&gt;: the URL for the webm video.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;video_ogv: [url]&lt;/code&gt;: the URL for the ogv video.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;versions&quot;&gt;Versions&lt;/h2&gt;
+
+&lt;p&gt;Here is a table with all Thinny’s versions:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Version&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Codename&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Platform&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Release date&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://github.com/camporez/Thinny/releases/tag/v0.3-alexandra&quot;&gt;0.3&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://nikita2010.wikia.com/wiki/Alexandra_Udinov&quot;&gt;Alexandra&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Ghost 0.3.x&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;November 2013&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://github.com/camporez/Thinny/releases/tag/v2.0-bianca&quot;&gt;2.0&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://memoriaglobo.globo.com/programas/entretenimento/novelas/caras-bocas/caras-bocas-bianca-isabelle-drummond.htm&quot;&gt;Bianca&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Jekyll&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;January 2014&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://github.com/camporez/Thinny/releases/tag/v2.1-cosette&quot;&gt;2.1&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://lesmiserables.wikia.com/wiki/Cosette&quot;&gt;Cosette&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Jekyll&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;February 2014&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Dolores_Haze&quot;&gt;Dolores&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Jekyll&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Soon…&lt;/em&gt;&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Thinny 2.1 is already &lt;a href=&quot;https://github.com/camporez/Thinny/releases&quot;&gt;available for download on GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Want to see something else added or report a bug? &lt;a href=&quot;https://github.com/camporez/camporez.github.io/issues/new&quot;&gt;Open an issue&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;This file is placed in your root directory. It’s the main file of configuration. For more information, read &lt;a href=&quot;http://jekyllrb.com/docs/configuration/&quot;&gt;the docs&lt;/a&gt;. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;See the &lt;a href=&quot;https://github.com/camporez/camporez.github.io/issues?milestone=3&quot;&gt;issues list&lt;/a&gt;. &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
+ <entry>
+   <title>Thinny 2: a Jekyll theme</title>
+   <link href="http://camporez.com/blog/thinny-2"/>
+   <updated>2014-01-22T00:00:00+10:00</updated>
+   <id>http://camporez.com/blog/thinny-2</id>
+   <content type="html">&lt;p&gt;Three months ago, I released an (unfinished) theme for Ghost 0.3: &lt;a href=&quot;http://github.com/camporez/Thinny&quot;&gt;Thinny 0.3&lt;/a&gt;, codename “&lt;a href=&quot;http://nikita2010.wikia.com/wiki/Alexandra_Udinov&quot;&gt;Alexandra&lt;/a&gt;”.
+But now I’m migrating my blog to Jekyll, and also migrating the theme. With a brand new look, Thinny 2 also brings a lot of new features and polishment. Actually, it was completely remaked.&lt;/p&gt;
+
+&lt;h1 id=&quot;thinny-20-codename-biancahttpmemoriagloboglobocomprogramasentretenimentonovelascaras-bocascaras-bocas-bianca-isabelle-drummondhtm&quot;&gt;Thinny 2.0, codename “&lt;a href=&quot;http://memoriaglobo.globo.com/programas/entretenimento/novelas/caras-bocas/caras-bocas-bianca-isabelle-drummond.htm&quot;&gt;Bianca&lt;/a&gt;”&lt;/h1&gt;
+
+&lt;p&gt;This new version of Thinny goes deeper with the &lt;a href=&quot;http://ghost-camporez.rhcloud.com/making-applications-icon-smaller-on-gnome-shells-top-panel/&quot;&gt;initial idea&lt;/a&gt; of a big image before the post. As the saying goes, &lt;cite&gt;a picture is worth a thousand words&lt;/cite&gt;, so we expanded the concept. I mean, literally. The post image (or video!) is now full width and full height, and can be easily add with the use of a variable.&lt;/p&gt;
+
+&lt;h2 id=&quot;features&quot;&gt;Features&lt;/h2&gt;
+
+&lt;h3 id=&quot;lists-and-text-formatting&quot;&gt;Lists and text formatting&lt;/h3&gt;
+
+&lt;p&gt;You can use various HTML tags:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;To bold text&lt;/strong&gt;, use &lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;To italicize text&lt;/em&gt;, use &lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Abbreviations, like &lt;abbr title=&quot;HyperText Markup Langage&quot;&gt;HTML&lt;/abbr&gt; should use &lt;code&gt;&amp;lt;abbr&amp;gt;&lt;/code&gt;, with an optional &lt;code&gt;title&lt;/code&gt; attribute for the full phrase.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Citations, like &lt;cite&gt;— Camporez&lt;/cite&gt;, should use &lt;code&gt;&amp;lt;cite&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;del&gt;Deleted&lt;/del&gt; text should use &lt;code&gt;&amp;lt;del&amp;gt;&lt;/code&gt; and &lt;ins&gt;inserted&lt;/ins&gt; text should use &lt;code&gt;&amp;lt;ins&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Superscript &lt;sup&gt;text&lt;/sup&gt; uses &lt;code&gt;&amp;lt;sup&amp;gt;&lt;/code&gt; and subscript &lt;sub&gt;text&lt;/sub&gt; uses &lt;code&gt;&amp;lt;sub&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;messages-code-and-images&quot;&gt;Messages, code and images&lt;/h3&gt;
+
+&lt;div class=&quot;message&quot;&gt;This is a &lt;strong&gt;warning&lt;/strong&gt; message. Now, you can keep falling in love with this theme...&lt;/div&gt;
+
+&lt;p&gt;You can add &lt;code&gt;code elements&lt;/code&gt; with highlight support:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;/media/2014-01-22-thinny-2/bianca.jpg&amp;quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;100&amp;#37;&amp;quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Image captions are supported out of the box. Brilliant!&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Will output this:&lt;/p&gt;
+
+&lt;div id=&quot;article-img&quot;&gt;&lt;a href=&quot;/media/2014-01-22-thinny-2/bianca.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/media/2014-01-22-thinny-2/bianca.jpg&quot; alt=&quot;Image captions are supported out of the box. Brilliant!&quot; width=&quot;100%&quot; /&gt;&lt;/a&gt;
+&lt;blockquote style=&quot;border-left: 10px solid #D5D5D5;&quot;&gt;Image captions are supported out of the box. Brilliant!&lt;/blockquote&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;table&quot;&gt;Table&lt;/h3&gt;
+
+&lt;p&gt;Thinny also support html tag &lt;code&gt;&amp;lt;table&amp;gt;&lt;/code&gt;:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Version&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Codename&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Platform&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://github.com/camporez/Thinny/releases/tag/v0.3-alexandra&quot;&gt;0.3&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://nikita2010.wikia.com/wiki/Alexandra_Udinov&quot;&gt;Alexandra&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Ghost 0.3.x&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://github.com/camporez/Thinny/releases/tag/v2.0-bianca&quot;&gt;2.0&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://memoriaglobo.globo.com/programas/entretenimento/novelas/caras-bocas/caras-bocas-bianca-isabelle-drummond.htm&quot;&gt;Bianca&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Jekyll&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;http://lesmiserables.wikia.com/wiki/Cosette&quot;&gt;Cosette&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Jekyll&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;mobile-version&quot;&gt;Mobile version&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Coming soon…&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;quote&quot;&gt;Quote&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Did you liked it? You can &lt;a href=&quot;https://github.com/camporez/Thinny/releases&quot;&gt;download Thinny on GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Want to see something else added? &lt;a href=&quot;https://github.com/camporez/camporez.github.io/issues/new&quot;&gt;Open an issue&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Making application's icon smaller on GNOME Shell's top panel</title>
+   <link href="http://camporez.com/blog/making-applications-icon-smaller-on-gnome-shells-top-panel"/>
+   <updated>2013-11-19T00:00:00+10:00</updated>
+   <id>http://camporez.com/blog/making-applications-icon-smaller-on-gnome-shells-top-panel</id>
+   <content type="html">&lt;p&gt;I’m a huge fan of GNOME Shell. Using it since the release of version 3.0, is great to see how things has been polished. However, one of the things that always annoyed me is the app icon on the top bar, because it’s unnecessarily big, in my opinion.&lt;/p&gt;
+
+&lt;p&gt;A long time ago I found &lt;a href=&quot;http://www.gregfreeman.org/2011/remove-application-icon-from-gnome-3/&quot;&gt;this good tutorial&lt;/a&gt; showing how to remove the icon, but it was not what I wanted, I just wanted to make it smaller, like this:&lt;/p&gt;
+
+&lt;div id=&quot;article-img&quot;&gt;&lt;a href=&quot;https://github.com/gnome-design-team/gnome-mockups/raw/master/music/music-albums.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://github.com/gnome-design-team/gnome-mockups/raw/master/music/music-albums.png&quot; alt=&quot;GNOME Music&#39;s mockup showing a smaller icon on the top panel, via GNOME Wiki&quot; /&gt;&lt;/a&gt;
+&lt;blockquote style=&quot;border-left: 10px solid #D5D5D5;&quot;&gt;GNOME Music&#39;s mockup showing a smaller icon on the top panel, via GNOME Wiki&lt;/blockquote&gt;&lt;/div&gt;
+
+&lt;p&gt;So, after a lot of unsuccessful tentatives on changing &lt;em&gt;gnome-shell.css&lt;/em&gt;, I realized that this setup is made with &lt;em&gt;javascript&lt;/em&gt;, and not just &lt;em&gt;css&lt;/em&gt;, and I decided to write this small tutorial.&lt;/p&gt;
+
+&lt;div class=&quot;message&quot;&gt;&lt;strong&gt;Update&lt;/strong&gt;: This tutorial is obsolete. You can achieve the same results by installing 
+&lt;a href=&quot;https://extensions.gnome.org/extension/861/small-panel-icon/&quot;&gt;this extension that I&#39;ve created&lt;/a&gt;.&lt;/div&gt;
+
+&lt;div class=&quot;message&quot;&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: the following procedures were made on version 3.10 of gnome-shell. I don&#39;t guarantee that it&#39;ll work in previous versions, neither in later versions, nor even in version 3.10, and I&#39;m not responsible for possible damage to your system.&lt;/div&gt;
+
+&lt;p&gt;The files you’ll have to change are:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;/usr/share/gnome-shell/js/ui/panel.js&lt;/strong&gt;: to change the size of the icon.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;/usr/share/gnome-shell/theme/gnome-shell.css&lt;/strong&gt; (or, if you’re using a custom theme, its respective &lt;em&gt;css&lt;/em&gt;): to move the icon slightly to the left.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;On &lt;em&gt;panel.js&lt;/em&gt;, you will need to apply the following patch:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-diff&quot; data-lang=&quot;diff&quot;&gt;295c295
+&amp;lt;         let icon = this._targetApp.get_faded_icon(2 * PANEL_ICON_SIZE, this._iconBox.text_direction);
+&lt;span class=&quot;gd&quot;&gt;---&lt;/span&gt;
+&amp;gt;         let icon = this._targetApp.get_faded_icon(PANEL_ICON_SIZE, this._iconBox.text_direction);
+350,351c350,351
+&amp;lt;         alloc.min_size = minSize;
+&amp;lt;         alloc.natural_size = naturalSize;
+&lt;span class=&quot;gd&quot;&gt;---&lt;/span&gt;
+&amp;gt;         alloc.min_size = minSize + Math.floor(PANEL_ICON_SIZE * 2);
+&amp;gt;         alloc.natural_size = naturalSize + Math.floor(PANEL_ICON_SIZE * 2) ;
+397,398c397,398
+&amp;lt;             childBox.x1 = Math.floor(iconWidth / 2);
+&amp;lt;             childBox.x2 = Math.min(childBox.x1 + naturalWidth, allocWidth);
+&lt;span class=&quot;gd&quot;&gt;---&lt;/span&gt;
+&amp;gt;             childBox.x1 = Math.floor(iconWidth + 3);
+&amp;gt;             childBox.x2 = Math.floor(iconWidth + 3) + Math.min(childBox.x1 + naturalWidth, allocWidth);
+400c400
+&amp;lt;             childBox.x2 = allocWidth - Math.floor(iconWidth / 2);
+&lt;span class=&quot;gd&quot;&gt;---&lt;/span&gt;
+&amp;gt;             childBox.x2 = allocWidth - Math.floor(iconWidth + 3);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can change these lines manually, or download the diff &lt;a href=&quot;https://gist.github.com/camporez/8566608/download&quot;&gt;here&lt;/a&gt;, and apply it with the following command:
+&lt;code&gt;sudo patch /usr/share/gnome-shell/js/ui/panel.js panel.js.diff&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The changes on the css are small so you just need to open it with your favorite editor and add the line &lt;code&gt;padding-left: 10px;&lt;/code&gt; to the selector &lt;code&gt;#appMenu&lt;/code&gt;, like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nf&quot;&gt;#appMenu&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;spinner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url(&amp;quot;process-working.svg&amp;quot;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;spacing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;padding-left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, you just need to restart gnome-shell (press ALT + F2 and type r + ENTER) and it’s done.&lt;/p&gt;
+
+&lt;p&gt;This is how it (plus another tweaks on gnome-shell.css) made my desktop looks like:
+&lt;img src=&quot;/media/2013-11-19-making-applications-icon-smaller-on-gnome-shells-top-panel/Captura_de_tela_de_2013_11_19_13_12_42.png&quot; alt=&quot;My desktop today&quot; /&gt;
+If you have any suggestion or feedback, please contact me &lt;a href=&quot;http://google.com/+IanCamporezBrunelli&quot;&gt;via Google+&lt;/a&gt;. Thank you!&lt;/p&gt;
+</content>
+ </entry>
+ 
+
 </feed>
